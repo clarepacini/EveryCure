@@ -15,7 +15,7 @@ Each part of the pipeline can be run separately:
 
 #graph_builder not finished testing successfully. The large files look like they need batch processing and this has not been implemented.
 
-#python graph_builder.py --node_file ./data/Nodes.csv --edge_file ./data/Edges.csv --output_file graph.pt
+# Do not run: python graph_builder.py --node_file ./data/Nodes.csv --edge_file ./data/Edges.csv --output_file graph.pt
 
 To run the ML classifier using the provided embeddings (Assuming data stored in folder data), trained model output to output_model.pkl:
 

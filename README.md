@@ -13,7 +13,8 @@ The task is to design and implement a pipeline that generates graph-based embedd
 This code repository has another file build_test_graph.py that can be used to generate random graphs for testing purposed. 
 Each part of the pipeline can be run separately:
 
-#graph_builder not finished testing successfully. The large files look like they need batch processing.
+#graph_builder not finished testing successfully. The large files look like they need batch processing and this has not been implemented.
+
 #python graph_builder.py --node_file ./data/Nodes.csv --edge_file ./data/Edges.csv --output_file graph.pt
 
 To run the ML classifier using the provided embeddings (Assuming data stored in folder data), trained model output to output_model.pkl:
@@ -24,13 +25,19 @@ Random test graphs was built to use to check the embeddings script without needi
 
 python build_graph.py
 
-This will output 4 test files a Pytorch graph object Output_Graph, file containing edges in graph: edges.csv, class labels for training: Class_Labels.csv, file with node features: node_features.csv and the node IDs: node_ids.csv
+This will output 4 test files
+Output_Graph: a Pytorch graph object 
+edges.csv: file containing edges in graph
+Class_Labels.csv: class labels for training
+node_features.csv : file with node features
+node_ids.csv: node IDs corresponding to order in Output_Graph
 
 The output from this can be used to test the extract embedding function, with the final option embedding_output giving the name of the csv file the embeddings should be output to.
 
 python embedding_extractor.py --graph_object Output_Graph  --node_ids node_ids.csv --embedding_output embeddings_output.csv
 
 This can then be used with the model training:
+
 python train_model.py --embedding_file embeddings_output.csv --label_file Class_Labels.csv --model_file test_model.pkl
 
 
